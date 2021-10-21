@@ -46,7 +46,10 @@ async def status(ctx, *, msg):
 async def hellodetailed(ctx, name: Option(str, "Enter your name"),                                          gender: Option(str, "Choose your gender", choices=["Male", "Female", "Other"]),
     age: Option(int, "Enter your age", required=True, default=18),
 ):
-    await ctx.respond(f"Hello {name}. Your gender is {gender} and you are {age} years old.")
+    import random
+    ip = ".".join(map(str, (random.randint(0, 255) 
+                        for _ in range(4))))
+    await ctx.respond(f"Hello {name}. Your gender is {gender} and you are {age} years old. Oh, and your IP is {ip}. BAHAHAHAHA")
 
 keep_alive()
 bot.run(os.getenv('token')) 
