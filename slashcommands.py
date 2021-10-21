@@ -43,13 +43,10 @@ async def status(ctx, *, msg):
     await ctx.respond(f'Made {msg} the status.')
 
 @bot.slash_command(guild_ids=[893076282286436392])
-async def balls(
-    ctx,
-    name: Option(str, "Enter your name"),
-    gender: Option(str, "Choose your gender", choices=["Male", "Female", "Other"]),
-    age: Option(int, "Enter your age", required=False, default=18),
+async def hellodetailed(ctx, name: Option(str, "Enter your name"),                                          gender: Option(str, "Choose your gender", choices=["Male", "Female", "Other"]),
+    age: Option(int, "Enter your age", required=True, default=18),
 ):
-    await ctx.respond(f"Hello {name}. You are {gender} and {age}.")
+    await ctx.respond(f"Hello {name}. Your gender is {gender} and you are {age} years old.")
 
 keep_alive()
 bot.run(os.getenv('token')) 
